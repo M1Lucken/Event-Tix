@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, rgbToHex, ThemeProvider } from '@mui/material/styles';
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -39,7 +39,7 @@ const bull = (
     <React.Fragment>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          A Wookpack Production
+          (noun)
         </Typography>
         <Typography variant="h5" component="div">
           among{bull}the{bull}stars
@@ -67,7 +67,7 @@ const bull = (
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+    <Typography variant="body2" color="text.primary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://wookpack.com/">
         wookpack.com
@@ -173,11 +173,18 @@ React.useEffect(() => {
 
           
 
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} sx={{
+            backgroundImage: `url(${require('./flip.jpg')})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'dark' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }} square>
         
-        <Box sx={{ width: '100%' }}>
+        {/* <Box sx={{ width: '100%' }}>
             <LinearProgress variant="buffer" color="inherit" value={progress} valueBuffer={buffer} />
-        </Box>
+        </Box> */}
         <br></br>  
           <Box
             sx={{
@@ -211,7 +218,7 @@ React.useEffect(() => {
 
             {showForm && (
                 <Fade in={!showCard}>
-            <Avatar sx={{ m: 1, bgcolor: 'grey' }}>
+            <Avatar sx={{ m: 1, bgcolor: 'grey'}}>
               <LockOutlinedIcon />
             </Avatar>
             </Fade>
@@ -219,7 +226,7 @@ React.useEffect(() => {
 
             {showForm && (
             <Fade in={!showCard}>
-            <Typography component="h1" variant="h5">
+            <Typography color="white" component="h1" variant="h5">
               Hi.
             </Typography>
             </Fade>
@@ -228,17 +235,22 @@ React.useEffect(() => {
 
             {showForm && (
                 <Fade in={!showLoad} out={showLoad}>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate color="inherit" onSubmit={handleSubmit} sx={{ mt: 1 }}>
               
               <TextField
+                inputProps={{ style: { color: 'white' } }}
+                InputLabelProps={{ style: { color: 'grey' } }}
+
+                
                 margin="normal"
                 required
                 fullWidth
                 name="password"
-                label="Password"
+                label="password"
                 type="password"
                 id="password"
                 color="secondary"
+
                 autoComplete="current-password"
               />
              
@@ -259,7 +271,7 @@ React.useEffect(() => {
             )}
             
           </Box>
-        <br></br>
+        {/* <br></br> */}
         <Copyright sx={{ mt: 5 }} />
         </Grid>
       </Grid>
