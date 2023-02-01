@@ -9,9 +9,10 @@
     "@mui/material": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "dig": "^0.0.6",
     "react": "latest",
     "react-dom": "latest",
-    "react-scripts": "latest",
+    "react-scripts": "^2.1.3",
     "typescript": "latest"
   },
   "scripts": {
@@ -19,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-	"predeploy": "npm run build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "browserslist": {
