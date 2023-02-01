@@ -48,10 +48,10 @@ const bull = (
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" color="secondary">Tickets</Button>
+        <Button size="small" href="https://wookpack.com/" color="secondary">Tickets</Button>
       </CardActions>
       <CardActions>
-        <Button size="small" color="secondary">Driving Directions</Button>
+        <Button size="small" href="https://wookpack.com/" color="secondary">Driving Directions</Button>
       </CardActions>
     </React.Fragment>
   );
