@@ -21,6 +21,8 @@ import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 
 import LinearProgress from '@mui/material/LinearProgress';
+import Fade from '@mui/material/Fade';
+import Switch from '@mui/material/Switch';
 
 
 
@@ -82,6 +84,8 @@ export default function PswrdForm() {
   const [showCard, setShowCard] = React.useState(false);
   const [showLoad, setShowLoad] = React.useState(false);
   const [showForm, setShowForm] = React.useState(true);
+
+
 //   const [progress, setProgress] = React.useState(0);
 
 //   React.useEffect(() => {
@@ -170,10 +174,11 @@ React.useEffect(() => {
           
 
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        
         <Box sx={{ width: '100%' }}>
             <LinearProgress variant="buffer" color="inherit" value={progress} valueBuffer={buffer} />
         </Box>
-          
+        <br></br>  
           <Box
             sx={{
               my: 8,
@@ -184,11 +189,15 @@ React.useEffect(() => {
             }}
           >
 
+        
+
             {showCard && (
             <Box sx={{ minWidth: 300 }}>
+                <Fade in={showCard}>
                 <Card variant="outlined">{card}</Card>
+                </Fade>
             </Box> 
-            )}
+             )}
 
             {showLoad && (
             <Box sx={{ display: 'flex' }}>
@@ -196,33 +205,29 @@ React.useEffect(() => {
             </Box>
             )}
 
-            {showCard && (
-            <Box>
-
-            <Copyright sx={{ mt: 5 }} />
-            
-            </Box>
-
-            )}
-
             {/* <Box>
             <CircularProgress variant="determinate" value={progress} color="secondary" />
             </Box> */}
 
             {showForm && (
+                <Fade in={!showCard}>
             <Avatar sx={{ m: 1, bgcolor: 'grey' }}>
               <LockOutlinedIcon />
             </Avatar>
+            </Fade>
             )}
 
             {showForm && (
+            <Fade in={!showCard}>
             <Typography component="h1" variant="h5">
               Hi.
             </Typography>
+            </Fade>
             )}
 
 
             {showForm && (
+                <Fade in={!showLoad} out={showLoad}>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               
               <TextField
@@ -247,16 +252,15 @@ React.useEffect(() => {
               >
                 Enter
               </Button>
-
               
               
-              <Copyright sx={{ mt: 5 }} />
             </Box>
+            </Fade>
             )}
             
           </Box>
         <br></br>
-          
+        <Copyright sx={{ mt: 5 }} />
         </Grid>
       </Grid>
     </ThemeProvider>
