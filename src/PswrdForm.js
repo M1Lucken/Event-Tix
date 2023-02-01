@@ -13,6 +13,49 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+
+const bull = (
+    <Box
+      component="span"
+      sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+    >
+      •
+    </Box>
+  );
+  
+  const card = (
+    <React.Fragment>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          A Wookpack Production
+        </Typography>
+        <Typography variant="h5" component="div">
+          among{bull}the{bull}stars
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          celebration
+        </Typography>
+        <Typography variant="body2">
+          Date: tbd
+          <br />
+          Time: tbd
+          <br />
+          Coordinates: tbd
+          {/* {'"Extra info: TBD"'} */}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small" color="secondary">Tickets</Button>
+      </CardActions>
+      <CardActions>
+        <Button size="small" color="secondary">Driving Directions</Button>
+      </CardActions>
+    </React.Fragment>
+  );
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -29,13 +72,23 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function PswrdForm() {
+  const [showCard, setShowCard] = React.useState(false);
+  const [showForm, setShowForm] = React.useState(true);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      //email: data.get('email'),
       password: data.get('password'),
     });
+    if (data.get('password') === "toothbrush") {
+        setShowCard(true);
+        setShowForm(false);
+      }
+      else {
+        window.alert("Try again ;)");
+        // setShowCard(false);
+        // setShowForm(true);
+      }
   };
 
   return (
@@ -66,12 +119,27 @@ export default function PswrdForm() {
               alignItems: 'center',
             }}
           >
+
+            {showCard && (
+            <Box sx={{ minWidth: 300 }}>
+                <Card variant="outlined">{card}</Card>
+            </Box>  
+            )}
+
+            {showForm && (
             <Avatar sx={{ m: 1, bgcolor: 'grey' }}>
               <LockOutlinedIcon />
             </Avatar>
+            )}
+
+            {showForm && (
             <Typography component="h1" variant="h5">
               Hi.
             </Typography>
+            )}
+
+
+            {showForm && (
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               
               <TextField
@@ -96,9 +164,13 @@ export default function PswrdForm() {
               >
                 Enter
               </Button>
+
+              
               
               <Copyright sx={{ mt: 5 }} />
             </Box>
+            )}
+            
           </Box>
         </Grid>
       </Grid>

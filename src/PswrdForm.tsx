@@ -19,19 +19,6 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { grey } from '@mui/material/colors';
 
-function Copyright(props: any) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://wookpack.com/">
-        wookpack.com
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const bull = (
     <Box
       component="span"
@@ -40,8 +27,8 @@ const bull = (
       •
     </Box>
   );
-
-const card = (
+  
+  const card = (
     <React.Fragment>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -65,17 +52,37 @@ const card = (
     </React.Fragment>
   );
 
+function Copyright(props: any) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://wookpack.com/">
+        wookpack.com
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
 const theme = createTheme();
 
+
+
 export default function PswrdForm() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      //email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      const data = new FormData(event.currentTarget);
+      console.log({
+        password: data.get('password'),
+      });
+      if (data.get('password') === "toothbrush") {
+        window.alert("Correct password!!!");
+        }
+        else {
+          window.alert("Wrong answer.");
+        }
+    };
 
   return (
     <ThemeProvider theme={theme}>
@@ -112,16 +119,6 @@ export default function PswrdForm() {
               Enter
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-              {/*<TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                autoFocus
-              /> */}
               <TextField
                 margin="normal"
                 required
@@ -148,6 +145,7 @@ export default function PswrdForm() {
               <Copyright sx={{ mt: 5 }} />
             </Box>
           </Box>
+
         </Grid>
       </Grid>
     </ThemeProvider>
