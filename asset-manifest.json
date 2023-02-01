@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.js": "/Event-Tix/static/js/main.733181e3.js",
-    "static/media/image.jpg": "/Event-Tix/static/media/image.6a1988afecfa8f545375.jpg",
-    "index.html": "/Event-Tix/index.html",
-    "main.733181e3.js.map": "/Event-Tix/static/js/main.733181e3.js.map"
+    "main.js": "/static/js/main.e6e6ca61.js",
+    "static/media/image.jpg": "/static/media/image.6a1988afecfa8f545375.jpg",
+    "index.html": "/index.html",
+    "main.e6e6ca61.js.map": "/static/js/main.e6e6ca61.js.map"
   },
   "entrypoints": [
-    "static/js/main.733181e3.js"
+    "static/js/main.e6e6ca61.js"
   ]
 }
