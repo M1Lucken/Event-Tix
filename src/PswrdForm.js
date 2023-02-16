@@ -42,7 +42,7 @@ const bull = (
           (noun)
         </Typography>
         <Typography variant="h5" component="div">
-          among{bull}the{bull}stars
+          inner{bull}bloom
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
           celebration
@@ -52,7 +52,7 @@ const bull = (
           <br />
           Time: tbd
           <br />
-          Coordinates: tbd
+          Coordinates: Santa Barbara, CA
           {/* {'"Extra info: TBD"'} */}
         </Typography>
       </CardContent>
