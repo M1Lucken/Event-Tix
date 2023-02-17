@@ -45,14 +45,14 @@ const bull = (
           inner{bull}bloom
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          celebration
+          festival
         </Typography>
         <Typography variant="body2">
-          Date: tbd
+          Date: May 16th, 2023
           <br />
-          Time: tbd
+          Time: (18:00-6:00)
           <br />
-          Coordinates: Santa Barbara, CA
+          Location: Santa Barbara, CA
           {/* {'"Extra info: TBD"'} */}
         </Typography>
       </CardContent>
@@ -69,8 +69,8 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.primary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://wookpack.com/">
-        wookpack.com
+      <Link color="inherit" href="https://innerbloom.live/">
+        InnerBloom.Live
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
